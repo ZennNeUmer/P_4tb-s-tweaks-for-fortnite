@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rust Tweaker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- ================= ЭКРАН ВХОДА (3D) ================= -->
+  <section id="screen-login">
+    <div class="scene">
+      <div class="login-card" id="login-card">
+        <div class="cube-wrap">
+          <div class="cube">
+            <div class="face f-front">RT</div>
+            <div class="face f-back">&#9889;</div>
+            <div class="face f-right">&#129421;</div>
+            <div class="face f-left">RT</div>
+            <div class="face f-top">&#9881;</div>
+            <div class="face f-bottom">&#128274;</div>
+          </div>
+        </div>
+        <h1 class="brand-title">Rust <span>Tweaker</span></h1>
+        <p class="sub">Windows optimization suite</p>
+        <ul id="boot-steps" class="boot-steps"></ul>
+        <div id="boot-warn" class="boot-warn hidden"></div>
+        <button id="btn-enter" class="btn-enter hidden">
+          <span>Войти в систему</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ОСНОВНОЙ ЭКРАН ================= -->
+  <section id="screen-app" class="hidden">
+    <div class="shell" id="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">RT</div>
+          <div class="brand-name"><b>Rust Tweaker</b><small>v1.0.0</small></div>
+        </div>
+        <nav class="nav" id="nav">
+          <button class="nav-btn active" data-cat="all"><i>&#127919;</i>Все<span class="count" id="c-all">0</span></button>
+          <button class="nav-btn" data-cat="privacy"><i>&#128274;</i>Приватность<span class="count" id="c-privacy">0</span></button>
+          <button class="nav-btn" data-cat="ui"><i>&#128187;</i>Интерфейс<span class="count" id="c-ui">0</span></button>
+          <button class="nav-btn" data-cat="perf"><i>&#9889;</i>Производительность<span class="count" id="c-perf">0</span></button>
+        </nav>
+        <div class="side-footer">
+          <div class="side-stat"><span>Применено</span><b id="stat-applied">0</b></div>
+          <div class="side-stat"><span>Всего твиков</span><b id="stat-total">0</b></div>
+        </div>
+      </aside>
+
+      <div class="main">
+        <header class="topbar">
+          <div class="search-wrap">
+            <span class="search-ico">&#128269;</span>
+            <input id="search" type="text" placeholder="Поиск тика..." autocomplete="off" />
+          </div>
+          <div class="actions">
+            <button class="btn ghost" id="btn-restore">&#128230; Точка восстановления</button>
+            <button class="btn ghost" id="btn-explorer">&#128260; Перезапуск Explorer</button>
+            <button class="btn" id="btn-revert-all">&#8634; Сбросить всё</button>
+            <button class="btn primary" id="btn-apply-all">&#9889; Применить всё</button>
+          </div>
+        </header>
+        <main class="cards" id="cards"></main>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ОВЕРЛЕЙ ПРОГРЕССА ================= -->
+  <div id="progress-overlay" class="overlay hidden">
+    <div class="progress-box">
+      <div class="progress-title" id="progress-title">Применение твиков...</div>
+      <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+      <div class="progress-sub" id="progress-sub">0 / 0</div>
+    </div>
+  </div>
+
+  <div id="toast-wrap"></div>
+  <script src="app.js"></script>
+</body>
+</html>
